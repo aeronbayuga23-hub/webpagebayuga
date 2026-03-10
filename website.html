@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RNHS WEBPAGE</title>
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Arial, sans-serif;
+}
+
+#authPage{
+  height:100vh;
+  background:
+  linear-gradient(rgba(15,23,42,.85),rgba(2,6,23,.9)),
+ url("C:\Users\Admin\Downloads\9dd9d9b1-371b-4856-8dc8-f4d75bdd158b.jpg") no-repeat center center/cover;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+#home{
+  display:none;
+  min-height:80vh;
+  background:
+  linear-gradient(rgba(15,23,42,.75), rgba(15,23,42,.75)),
+  url("C:\Users\Admin\Downloads\9dd9d9b1-371b-4856-8dc8-f4d75bdd158b.jpg") center/cover no-repeat;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  color:white;
+}
+
+.box{
+  width:400px;
+  padding:40px;
+  background:rgba(255,255,255,0.12);
+  backdrop-filter:blur(12px);
+  border-radius:18px;
+  box-shadow:0 25px 60px rgba(0,0,0,0.4);
+  text-align:center;
+  color:white;
+}
+
+.logo{
+  width:110px;
+  height:110px;
+  object-fit:cover;
+  border-radius:50%;
+  margin-bottom:20px;
+  border:3px solid #22c55e;
+}
+
+input{
+  width:100%;
+  padding:12px;
+  margin:8px 0;
+  border:none;
+  border-radius:8px;
+}
+
+button{
+  width:100%;
+  padding:12px;
+  margin-top:15px;
+  background:#22c55e;
+  border:none;
+  border-radius:25px;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+.switch{
+  margin-top:15px;
+  font-size:13px;
+}
+
+.switch a{
+  color:#38bdf8;
+  cursor:pointer;
+  text-decoration:none;
+}
+
+.hidden{
+  display:none;
+}
+
+/* HOME PAGE */
+#homePage{
+  display:none;
+  background:#f1f5f9;
+  color:#1e293b;
+  min-height:100vh;
+}
+
+header{
+  background:#1e3a8a;
+  color:white;
+  padding:20px;
+  position:sticky;
+  top:0;
+  z-index:1000;
+}
+
+.header-content{
+  text-align:center;
+}
+
+nav{
+  margin-top:10px;
+  text-align:center;
+}
+
+nav a{
+  color:white;
+  text-decoration:none;
+  margin:0 15px;
+  font-weight:bold;
+  font-size:15px;
+}
+
+section{
+  display:none;
+  padding:70px 40px;
+  max-width:1200px;
+  margin:auto;
+}
+
+.section-title{
+  text-align:center;
+  margin-bottom:40px;
+  color:#1e3a8a;
+  font-size:26px;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:25px;
+}
+
+.card{
+  background:white;
+  padding:25px;
+  border-radius:12px;
+  box-shadow:0 6px 15px rgba(0,0,0,.1);
+}
+
+.card img{
+  width:100%;
+  border-radius:12px;
+  margin-bottom:10px;
+}
+
+/* DEVELOPER / RESUME */
+.resume-container {
+  background:white;
+  padding:30px;
+  border-radius:12px;
+  box-shadow:0 6px 15px rgba(0,0,0,.1);
+  display:flex;
+  gap:20px;
+  flex-wrap:wrap;
+}
+
+.left-section{
+  flex:2;
+}
+
+.right-section{
+  flex:1;
+  text-align:center;
+}
+
+.profile-pic{
+  width:160px;
+  height:160px;
+  object-fit:cover;
+  border:5px solid #22c55e;
+  border-radius:12px;
+}
+
+table{
+  width:100%;
+  border-collapse:collapse;
+  margin-top:20px;
+}
+
+table, th, td{
+  border:1px solid #ccc;
+}
+
+th{
+  background:#1e3a8a;
+  color:white;
+  padding:8px;
+}
+
+td{
+  padding:8px;
+}
+
+footer{
+  background:#0f172a;
+  color:white;
+  text-align:center;
+  padding:20px;
+}
+
+footer a{
+  color:#22c55e;
+  text-decoration:none;
+}
+
+footer a:hover{
+  text-decoration:underline;
+}
+</style>
+</head>
+<body>
+
+<div id="authPage">
+  <div class="box">
+    <div id="loginForm">
+      <img src="C:\Users\Admin\OneDrive\Pictures\OIP (2).webp"class="logo">
+      <h2>ROSALES NATIONAL HIGHSCHOOL</h2>
+      <p>Login to continue</p>
+      <input type="text" placeholder="Username" id="loginUser">
+      <input type="password" placeholder="Password" id="loginPass">
+      <button onclick="login()">Login</button>
+      <div class="switch">
+        Don't have an account?
+        <a onclick="showSignup()">Sign Up</a>
+      </div>
+    </div>
+    <div id="signupForm" class="hidden">
+      <img src="C:\Users\Admin\OneDrive\Pictures\OIP (2).webp" class="logo">
+      <h2>Create Account</h2>
+      <input type="text" placeholder="Full Name">
+      <input type="text" placeholder="Username">
+      <input type="email" placeholder="Email">
+      <input type="password" placeholder="Password" id="pass">
+      <input type="password" placeholder="Confirm Password" id="confirm">
+      <button onclick="signup()">Sign Up</button>
+      <div class="switch">
+        Already have an account?
+        <a onclick="showLogin()">Login</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="homePage">
+
+<header>
+  <div class="header-content">
+    <h1>Rosales National High School</h1>
+  </div>
+  <nav>
+    <a href="#" onclick="showSection('home')">Home</a>
+    <a href="#" onclick="showSection('strands')">Strands</a>
+    <a href="#" onclick="showSection('mission')">Mission & Vision</a>
+    <a href="#" onclick="showSection('about')">About</a>
+    <a href="#" onclick="showSection('facilities')">Facilities</a>
+    <a href="#" onclick="showSection('events')">Events</a>
+    <a href="#" onclick="showSection('map')">School M
+ap</a>
+    <a href="#" onclick="logout()">Logout</a>
+  </nav>
+</header>
+
+<section id="home">
+  <div class="hero">
+    <h2>Welcome to RNHS</h2>
+    <p>Empowering students for a brighter future</p>
+  </div>
+</section>
+
+<section id="strands">
+  <h2 class="section-title">Senior High School Strands</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>STEM</h3>
+      <p>Science, Technology, Engineering, and Mathematics (STEM) strand focuses on advanced concepts in science and math, preparing students for careers in engineering, health, research, and technology-related fields.</p>
+    </div>
+    <div class="card">
+      <h3>ABM</h3>
+      <p>Accountancy, Business, and Management (ABM) strand is designed for students who want to pursue business-related courses, including entrepreneurship, finance, and marketing, developing analytical and managerial skills.</p>
+    </div>
+    <div class="card">
+      <h3>HUMSS</h3>
+      <p>Humanities and Social Sciences (HUMSS) strand prepares students for education, communication, psychology, and law careers. Focuses on critical thinking, writing, research, and social awareness.</p>
+    </div>
+    <div class="card">
+      <h3>TVL - Technical Vocational Livelihood</h3>
+      <p>The TVL strand equips students with practical skills for immediate employment or entrepreneurship in technical-vocational fields. It has several specializations:</p>
+      <ul>
+        <li><strong>Information and Communications Technology (ICT):</strong> Develops digital skills including computer programming, web design, software development, animation, networking, and technical drafting. Students learn to create apps, websites, and multimedia projects.</li>
+        <li><strong>Home Economics (HE):</strong> Prepares students for hospitality, food service, and tourism industries. Covers bread and pastry production, food and beverage services, housekeeping, and practical skills for hotels, restaurants, and catering businesses.</li>
+        <li><strong>Shielded Metal Arc Welding (SMAW):</strong> Focuses on welding and metal fabrication skills. Students learn welding techniques, safety procedures, metal cutting, assembly, and quality control, preparing them for careers in manufacturing, construction, or engineering workshops.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="mission">
+  <h2 class="section-title">Mission & Vision</h2>
+  <div class="grid">
+    <div class="card"><h3>Mission</h3><p>To protect and promote the right of every learner to quality, equitable, culture-based, and complete basic education.</p></div>
+    <div class="card"><h3>Vision</h3><p>To produce Filipinos who passionately love their country and whose values and competencies enable them to realize their full potential and contribute meaningfully to building the nation.
+  </div>
+</section>
+
+<section id="about">
+  <h2 class="section-title">About Rosales National High School</h2>
+  <p style="text-align:center; max-width:900px; margin:auto;">
+    Established to serve the educational needs of the community, Rosales National High 
+    School has consistently provided quality education with a focus on academic 
+    excellence, extracurricular development, and values formation.
+  </p>
+</section>
+
+<section id="facilities">
+  <h2 class="section-title">School Facilities</h2>
+  <div class="grid">
+    <div class="card"><img src="C:\Users\Admin\Downloads\da1f4e45-c184-461c-896e-206af162fdff.jpg" alt="Library"><h3>Library</h3><p>A well-stocked library with modern resources to support learning and research.</p></div>
+    <div class="card"><img src="C:\Users\Admin\Downloads\b92cc9bc-0f2c-4f19-8e62-d256b8da6f15.jpg" alt="Computer Lab"><h3>Computer Lab</h3><p>Equipped space for students to access technology, learn digital skills, and complete assignments.</p></div>
+    <div class="card"><img src="C:\Users\Admin\Downloads\e3b12c57-6b0b-41b7-9124-a77f8ccb2f77.jpg" alt="Gymnasium"><h3>Gymnasium</h3><p>Dedicated indoor facility designed for physical exercise, sports, and fitness training.</p></div>
+  </div>
+</section>
+
+<section id="events">
+  <h2 class="section-title">School Events</h2>
+  <div class="grid">
+    <div class="card"><img src="C:\Users\Admin\Downloads\c2a2b19e-e6e9-49b4-9e3b-be11b6368cb7.jpg" alt="Field Demo"><h3>Field Demo</h3><p>Vibrant, collaborative event to showcase skills and technologies in practical settings.</p></div>
+    <div class="card"><img src="C:\Users\Admin\Downloads\babfa5c7-6566-4196-b028-5dbc5b54ec18.jpg" alt="Intramurals"><h3>Intramurals</h3><p>Recreational and competitive sporting events held within the school.</p></div>
+  </div>
+</section>
+
+<section id="map">
+  <h2 class="section-title">School Map</h2>
+  <div style="text-align:center;">
+    <img src="C:\Users\Admin\Downloads\3e0e6dec-a785-47fc-9765-c2c45917cdf4.jpg" alt="School Map" style="width:90%; max-width:900px; border-radius:12px;">
+    <p>Navigate easily through the different areas of Rosales National High School.</p>
+  </div>
+</section>b
+
+<section id="developer">
+  <h2 class="section-title">Web Developer / Resume</h2>
+  <div class="resume-container">
+    <div class="left-section">
+      <table>
+        <tr><th>Field</th><th>Details</th></tr>
+        <tr><td>Full Name</td><td>Aeron Renver E. Bayuga</td></tr>
+        <tr><td>Age</td><td>17</td></tr>
+        <tr><td>Birthdate</td><td>October 23, 2008</td></tr>
+        <tr><td>Gender</td><td>Male</td></tr>
+        <tr><td>Address</td><td>San Marcelino Balungao Pangasinan</td></tr>
+        <tr><td>Phone Number</td><td>09635200431</td></tr>
+        <tr><td>Email</td><td>aeronbayuga94@email.com</td></tr>
+        <tr><td>Religion</td><td>Roman Catholic</td></tr>
+        <tr><td>Status</td><td>Single</td></tr>
+        <tr><td>Achievers</td><td>with honors</td></tr>
+        <tr><td>Work Experience</td><td>HTML, CSS</td></tr>
+      </table>
+    </div>
+    <div class="right-section">
+      <img src="C:\Users\Admin\Downloads\bfe480c0-632e-4243-8cb5-3f1450eb5e19.jpg" class="profile-pic">
+    </div>
+  </div>
+</section>
+
+<footer>
+  © 2026 Rosales National High School | Developed by <a href="#" onclick="showSection('developer')">Aeron Renver E. Bayuga</a>
+</footer>
+
+<script>
+function showSignup(){
+  document.getElementById("loginForm").classList.add("hidden");
+  document.getElementById("signupForm").classList.remove("hidden");
+}
+function showLogin(){
+  document.getElementById("signupForm").classList.add("hidden");
+  document.getElementById("loginForm").classList.remove("hidden");
+}
+function login(){
+  const user=document.getElementById("loginUser").value;
+  const pass=document.getElementById("loginPass").value;
+  if(user && pass){
+    document.getElementById("authPage").style.display="none";
+    document.getElementById("homePage").style.display="block";
+    showSection('home');
+  } else alert("Enter username and password");
+}
+function signup(){
+  const pass=document.getElementById("pass").value;
+  const confirm=document.getElementById("confirm").value;
+  if(pass===confirm){alert("Account created successfully!");showLogin();}
+  else alert("Passwords do not match!");
+}
+function logout(){
+  document.getElementById("homePage").style.display="none";
+  document.getElementById("authPage").style.display="flex";
+}
+// ================= SINGLE PAGE DISPLAY =================
+function showSection(id){
+  const sections=document.querySelectorAll('section');
+  sections.forEach(sec=>sec.style.display='none');
+  const target=document.getElementById(id);
+  if(target) target.style.display='block';
+}
+</script>
+</body>
+</html>
